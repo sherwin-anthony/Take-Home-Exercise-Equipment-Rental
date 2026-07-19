@@ -28,5 +28,165 @@
     "to_date": "2026-01-26",
     "total": 11340.0,
     "status": "confirmed"
+  },
+  {
+    "id": 4,
+    "equipment_id": 1,
+    "equipment_name": "Canon DSLR Camera",
+    "customer": "john",
+    "from_date": "2026-07-15",
+    "to_date": "2026-07-18",
+    "total": 6000.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 5,
+    "equipment_id": 2,
+    "equipment_name": "Cordless Drill",
+    "customer": "doe",
+    "from_date": "2026-07-15",
+    "to_date": "2026-07-21",
+    "total": 3024.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 6,
+    "equipment_id": 4,
+    "equipment_name": "PA Speaker System",
+    "customer": "doe",
+    "from_date": "2026-07-15",
+    "to_date": "2026-07-24",
+    "total": 16200.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 7,
+    "equipment_id": 2,
+    "equipment_name": "Cordless Drill",
+    "customer": "",
+    "from_date": "2026-08-14",
+    "to_date": "2026-08-25",
+    "total": 5184.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 8,
+    "equipment_id": 4,
+    "equipment_name": "PA Speaker System",
+    "customer": "",
+    "from_date": "2026-08-14",
+    "to_date": "2026-08-25",
+    "total": 19440.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 9,
+    "equipment_id": 1,
+    "equipment_name": "Canon DSLR Camera",
+    "customer": "sherwin",
+    "from_date": "2026-08-01",
+    "to_date": "2026-08-08",
+    "total": 10800.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 10,
+    "equipment_id": 3,
+    "equipment_name": "HD Projector",
+    "customer": "",
+    "from_date": "2026-06-05",
+    "to_date": "2026-06-10",
+    "total": 5400.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 11,
+    "equipment_id": 1,
+    "equipment_name": "Canon DSLR Camera",
+    "customer": "anthony",
+    "from_date": "2026-11-12",
+    "to_date": "2026-11-14",
+    "total": 4500.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 12,
+    "equipment_id": 2,
+    "equipment_name": "Cordless Drill",
+    "customer": "",
+    "from_date": "2026-05-14",
+    "to_date": "2026-05-21",
+    "total": 3456.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 13,
+    "equipment_id": 2,
+    "equipment_name": "Cordless Drill",
+    "customer": "fffff",
+    "from_date": "2026-12-15",
+    "to_date": "2026-12-17",
+    "total": 1440.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 14,
+    "equipment_id": 4,
+    "equipment_name": "PA Speaker System",
+    "customer": "jjjjj",
+    "from_date": "2026-07-25",
+    "to_date": "2026-07-28",
+    "total": 7200.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 15,
+    "equipment_id": 2,
+    "equipment_name": "Cordless Drill",
+    "customer": "llll",
+    "from_date": "2026-06-10",
+    "to_date": "2026-06-13",
+    "total": 1920.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 16,
+    "equipment_id": 1,
+    "equipment_name": "Canon DSLR Camera",
+    "customer": "john",
+    "from_date": "2026-04-08",
+    "to_date": "2026-04-16",
+    "total": 12150.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 17,
+    "equipment_id": 1,
+    "equipment_name": "Canon DSLR Camera",
+    "customer": "",
+    "from_date": "2026-09-01",
+    "to_date": "2026-09-09",
+    "total": 12150.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 18,
+    "equipment_id": 1,
+    "equipment_name": "Canon DSLR Camera",
+    "customer": "",
+    "from_date": "2026-09-10",
+    "to_date": "2026-09-10",
+    "total": 1500.0,
+    "status": "confirmed"
+  },
+  {
+    "id": 19,
+    "equipment_id": 1,
+    "equipment_name": "Canon DSLR Camera",
+    "customer": "",
+    "from_date": "2026-09-10",
+    "to_date": "2026-09-11",
+    "total": 3000.0,
+    "status": "confirmed"
   }
 ]

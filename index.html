@@ -79,10 +79,18 @@
         totalEl.textContent = "Total: PHP 0.00";
         return;
       }
-      const total = equipment.daily_rate * days;
+      let total = equipment.daily_rate * days;
+      let discountApplied = false;
+      if (days >= 7) {
+        total *= 0.9; // Apply 10% discount
+        discountApplied = true;
+      }
+      if (discountApplied) {
+        totalEl.textContent = `Total: PHP ${total.toFixed(2)} (${days} days, 10% discount applied)`;
+      } else {
       totalEl.textContent = `Total: PHP ${total.toFixed(2)} (${days} day${days > 1 ? "s" : ""})`;
     }
-
+    }
     async function createBooking() {
       const messageEl = document.getElementById("message");
       messageEl.className = "";
@@ -110,10 +118,11 @@
         messageEl.textContent = data.error;
       }
     }
-
+    document.getElementById("to").addEventListener("change", updateTotal);
     document.getElementById("equipment").addEventListener("change", updateTotal);
     document.getElementById("from").addEventListener("change", updateTotal);
     document.getElementById("book").addEventListener("click", createBooking);
+    
 
     loadEquipment();
   </script>
