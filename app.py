@@ -65,30 +65,48 @@ def parse_date(value):
 
 
 def rental_days(from_date, to_date):
+    
     """Number of days this rental covers (see business rules above).
-
-    TODO (Task 1): implement.
-    """
-    raise NotImplementedError
+     - Rentals are billed *inclusively*: both the start day and the end day count.
+       
+    TODO (Task 1): implement. """
+    
+    return (to_date - from_date).days + 1
+    
 
 
 def dates_overlap(start_a, end_a, start_b, end_b):
     """True if date range A conflicts with date range B (see the
     same-day-turnover rule above).
 
-    TODO (Task 1): implement.
-    """
-    raise NotImplementedError
+    TODO (Task 1): implement.  """
+  
+    return start_a < end_b and start_b < end_a
+
 
 
 def find_conflicting_booking(equipment_id, from_date, to_date, bookings):
     """Return an existing, non-cancelled booking for this equipment that
     conflicts with the given dates, or None.
 
-    TODO (Task 1): implement.
-    """
-    raise NotImplementedError
+    TODO (Task 1): implement. """
+   
+    
+    for booking in bookings:
+        if booking["equipment_id"] != equipment_id:
+            continue
 
+        if booking.get("status") == "cancelled":
+            continue
+
+        existing_from = parse_date(booking["from_date"])
+        existing_to = parse_date(booking["to_date"])
+
+        if dates_overlap(from_date, to_date, existing_from, existing_to):
+            return booking
+
+    return None
+    
 
 def calculate_total(daily_rate, days):
     """Total price for a rental of this many days (see the long-rental
