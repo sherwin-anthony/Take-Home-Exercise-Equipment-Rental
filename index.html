@@ -23,7 +23,7 @@
   <select id="equipment"></select>
 
   <label for="customer">Customer name</label>
-  <input id="customer" type="text" placeholder="e.g. Jane Doe" />
+  <input id="customer" type="text" placeholder="e.g. Jane Doe" required />
 
   <label for="from">Start date</label>
   <input id="from" type="date" />
@@ -97,13 +97,21 @@
       const messageEl = document.getElementById("message");
       messageEl.className = "";
       messageEl.textContent = "";
+      
+      // Validate customer name
+      const customer = document.getElementById("customer").value.trim();
+      if (!customer) {
+        messageEl.className = "message err";
+        messageEl.textContent = "Customer name is required.";
+        return;
+      }
 
       const body = {
         equipment_id: Number(document.getElementById("equipment").value),
-        customer: document.getElementById("customer").value,
+        customer: customer,
         from_date: document.getElementById("from").value,
         to_date: document.getElementById("to").value,
-      };
+      };  
 
       const res = await fetch("/api/bookings", {
         method: "POST",
