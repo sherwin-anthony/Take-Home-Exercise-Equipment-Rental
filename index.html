@@ -45,6 +45,14 @@
       equipmentList = await res.json();
       const select = document.getElementById("equipment");
       select.innerHTML = "";
+
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "Select equipment";
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      select.appendChild(placeholder);
+      
       equipmentList
       .filter(item => item.status !== "maintenance")
       .forEach(item => {
@@ -99,19 +107,20 @@
       messageEl.textContent = "";
       
       // Validate customer name
-      const customer = document.getElementById("customer").value.trim();
-      if (!customer) {
+      const validation = validateBookingForm();
+
+      if (validation.error) {
         messageEl.className = "message err";
-        messageEl.textContent = "Customer name is required.";
+        messageEl.textContent = validation.error;
+
+        setTimeout(() => {
+          messageEl.className = "";
+          messageEl.textContent = "";
+        }, 3000);
+
         return;
       }
-
-      const body = {
-        equipment_id: Number(document.getElementById("equipment").value),
-        customer: customer,
-        from_date: document.getElementById("from").value,
-        to_date: document.getElementById("to").value,
-      };  
+      const body = validation.body;
 
       const res = await fetch("/api/bookings", {
         method: "POST",
@@ -128,6 +137,42 @@
         messageEl.textContent = data.error;
       }
     }
+
+    function validateBookingForm() {
+        const equipmentId = Number(document.getElementById("equipment").value);
+        const customer = document.getElementById("customer").value.trim();
+        const fromDate = document.getElementById("from").value;
+        const toDate = document.getElementById("to").value;
+
+        if (!equipmentId) {
+          return { error: "Please select equipment." };
+        }
+
+        if (!customer) {
+          return { error: "Customer name is required." };
+        }
+
+        if (!fromDate) {
+          return { error: "Start date is required." };
+        }
+
+        if (!toDate) {
+          return { error: "End date is required." };
+        }
+
+        if (new Date(toDate) < new Date(fromDate)) {
+          return { error: "End date cannot be before start date." };
+        }
+
+    return {
+      body: {
+        equipment_id: equipmentId,
+        customer: customer,
+        from_date: fromDate,
+        to_date: toDate,
+      }
+    };
+  }
     document.getElementById("to").addEventListener("change", updateTotal);
     document.getElementById("equipment").addEventListener("change", updateTotal);
     document.getElementById("from").addEventListener("change", updateTotal);
